@@ -6,42 +6,62 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\ProductRequest;
 use App\Models\Category;
 use App\Models\Product;
-use App\Models\ToppingProduct;
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Http\Request;
 
 class ProductController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
-        $products = Product::get();
-        return view('products.index', compact('products'));
+        $categories = Category::get();
+        if ($request->category_id != 0) {
+            $products = Product::where('category_id', $request->category_id)->
+            with('category')->with('sizeProduct')->paginate(6)->withPath("?" . $request->getQueryString());
+        } else {
+            $products = Product::with('category')->with('sizeProduct')->paginate(6);
+        }
+        return view('admin.products.index', compact('products', 'categories'));
     }
 
     public function create()
     {
         $categories = Category::get();
-        return view('products.create', compact('categories'));
+        return view('admin.products.create', compact('categories'));
     }
 
     public function store(ProductRequest $request)
     {
-        Product::create($request->all());
+        $params = $request->all();
+        unset($params['image']);
+        if ($request->has('image')) {
+            $path = $request->file('image')->store('products');
+            $params['image'] = $path;
+        }
+        Product::create($params);
         return redirect()->route('products.index');
     }
 
     public function show(Product $product)
     {
-        return view('products.show', compact('product'));
+        return view('admin.products.show', compact('product'));
     }
 
     public function edit(Product $product)
     {
         $categories = Category::get();
-        return view('products.edit', compact('product', 'categories'));
+        return view('admin.products.edit', compact('product', 'categories'));
     }
 
     public function update(ProductRequest $request, Product $product)
     {
-        $product->update($request->all());
+        $params = $request->all();
+        unset($params['image']);
+        if ($request->has('image')) {
+            Storage::delete($product->image);
+            $path = $request->file('image')->store('products');
+            $params['image'] = $path;
+        }
+        $product->update($params);
         return redirect()->route('products.index');
     }
 

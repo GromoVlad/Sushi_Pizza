@@ -1,32 +1,43 @@
-<!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>Laravel</title>
-        <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
-    </head>
-    <body>
-        <div class="flex-center position-ref full-height">
-            @if (Route::has('login'))
-                <div class="top-right links">
-                    @auth
-                        <a href="{{ route('index') }}">Главная</a>
-                    @else
-                        <a href="{{ route('login') }}">Войти</a>
+@extends('layouts.master')
 
-                        @if (Route::has('register'))
-                            <a href="{{ route('register') }}">Регистрация</a>
-                        @endif
-                    @endauth
+@section('style', 'index')
+@section('title', 'Главная')
+
+@section('content')
+    <div class="main">
+        <div class="category">
+            @foreach($categories as $category)
+                <div class="item_category">
+                    <a class="item_category_text" href="{{ route('index', $category->name_db) }}">
+                        <img class="item_category_icon" src="{{ Storage::url($category->image) }}" alt="{{$category->name}}">
+                        {{$category->name}}
+                    </a>
                 </div>
-            @endif
-
-            <div class="content">
-                <a href="{{ route('category.index') }}">Категории</a>
-                <a href="{{ route('products.index') }}">Продукты</a>
-                <a href="{{ route('topping.index') }}">Топпинги</a>
+            @endforeach
+        </div>
+        <div class="product_and_pagination">
+            <div class="product">
+                @foreach($products as $product)
+                    <div class="card shadow">
+                        <a class="card_link" href="{{ route('product', $product->id) }}">
+                            <img class="card_link_img" src="{{ Storage::url($product->image) }}" alt="{{$product->name}}">
+                            <div class="card-body">
+                                <p class="card_link_title">{{$product->name}}</p>
+                                <p class="card_link_text">{{$product->description}}</p>
+                                @foreach($product->sizeProduct as $sizeProduct)
+                                    <div class="card_link_specifications">
+                                        <div class="card_link_size">{{ $sizeProduct->size }} ({{ $sizeProduct->weight }} гр.):</div>
+                                        <div class="card_link_price">{{ $sizeProduct->price }} ₽</div>
+                                    </div>
+                                @endforeach
+                            </div>
+                        </a>
+                    </div>
+                @endforeach
+            </div>
+            <div class="main_pagination">
+                {{$products->links()}}
             </div>
         </div>
-    </body>
-</html>
+    </div>
+@endsection

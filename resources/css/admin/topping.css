@@ -1,0 +1,216 @@
+body {
+    font-size: 13px;
+}
+.num {
+    width: 7%;
+    padding: 3px;
+    text-align: center;
+}
+.name {
+    width: 19%;
+    padding: 10px;
+}
+.category {
+    justify-content: center;
+    width: 10%;
+    padding: 10px;
+}
+.desc {
+    width: 30%;
+    padding: 10px;
+}
+.act {
+    width: 40%;
+    padding: 10px;
+}
+.topping {
+    width: 22%;
+    padding: 10px;
+}
+.form {
+    display: flex;
+    flex-direction: column;
+}
+.group_one{
+    display: flex;
+    justify-content: flex-start;
+}
+.group_one a{
+    margin: 0.5%;
+}
+.group_one form{
+    margin: 0.5%;
+}
+
+.table_body.act a, .table_body.act input {
+    font-size: 13px;
+}
+tr {
+    display: flex;
+    align-content: center;
+}
+td {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+td.table_body.name, td.table_body.category, td.table_body.desc {
+    justify-content: flex-start;
+}
+th.table_head.act {
+    text-align: center;
+}
+.btn.btn-outline-success{
+    font-size: 13px;
+}
+
+.setting{
+    display: flex;
+    width: 18%;
+}
+
+.table_head.setting{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+}
+.table_body.setting{
+    display: flex;
+    flex-direction: column;
+}
+
+.div_setting{
+    display: flex;
+    text-align: center;
+    width: 100%;
+    padding: 5px 0;
+    border-bottom: 1px solid #dee2e6;
+}
+
+.div_setting:last-child{
+    border-bottom: none;
+}
+
+.div_setting div{
+    width: 33.3%;
+}
+
+.table_head.setting div{
+  text-align: center;
+}
+
+.table_head.topping{
+    text-align: center;
+}
+
+.header_text{
+    margin-top: 15px;
+    margin-bottom: 25px;
+    font-style: italic;
+    font-family: Noto Serif, sans-serif;
+}
+
+.middle_input{
+    width: 50%;
+}
+
+.prepend_size{
+    width: 20%;
+}
+
+.prepend_size_span{
+    width: 100%;
+}
+
+.size{
+    width: 12%;
+}
+.price{
+    justify-content: center;
+    width: 12%;
+    text-align: center;
+}
+.weight{
+    justify-content: center;
+    width: 12%;
+}
+.size_product{
+    width: 30%;
+}
+.stub{
+    width: 29%;
+}
+.margin_button{
+    margin: 0.5%;
+}
+.num_size_product{
+    width: 12.5%;
+    padding: 3px;
+    text-align: center;
+}
+.size_size_product{
+    width: 20%;
+}
+.price_size_product{
+    width: 20%;
+}
+.weight_size_product{
+    width: 20%;
+}
+.padding_left{
+    padding-left: 1%;
+}
+.green{
+    background-color: rgb(138, 206, 42);
+    border: 1px solid rgb(138, 206, 42);
+}
+.label_topping{
+    display: block;
+}
+.stub_category{
+    width: 40%;
+}
+.all_products{
+    width: 30%;
+}
+td.table_body.justify_center{
+    justify-content: center;
+}
+.btn-outline-info{
+    font-size: 13px;
+}
+.num_show {
+    width: 8%;
+}
+.name_show {
+    width: 23%;
+}
+.category_show{
+    width: 23%;
+}
+.price_show {
+    width: 23%;
+}
+.weight_show{
+    width: 23%;
+}
+
+.filter_topping{
+    width: 100%;
+    margin: 1.5% 0 0 1.7%;
+    display: flex;
+}
+
+.btn_topping{
+    margin-left: 0.5%;
+}
+
+.input-group_topping{
+    width: 40%;
+}

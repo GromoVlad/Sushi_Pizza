@@ -1,0 +1,53 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif:ital@1&family=Roboto&display=swap');
+
+body{
+    font-family: Roboto, sans-serif;
+    background-color: #f8fafc;
+}
+
+.content{
+    width: 1170px;
+    margin: 0 auto;
+    background-color: white;
+}
+
+div.top-right.links {
+    display: flex;
+    width: 1170px;
+    margin: 0 auto;
+    justify-content: flex-end;
+}
+
+.top-right.links a{
+    width: 10%;
+    text-align: center;
+    padding: 0.5%;
+    margin: 0.8%;
+    font-size: 16px;
+    color: #9d9d9d;
+}
+
+.head_wrapper{
+    background-color: #222;
+}
+
+.card{
+    margin-top: 2%;
+}
+
+.header_text_card{
+    margin: 0;
+    font-style: italic;
+    font-family: Noto Serif, sans-serif;
+}
+.breadcrumb{
+    background-color: white;
+    padding: 0;
+    padding-left: 1%;
+}
+li.breadcrumb-item a{
+    color: #6610f2;
+}
+li.breadcrumb-item{
+
+}

@@ -1,0 +1,232 @@
+body {
+    font-size: 13px;
+}
+.num {
+    width: 5%;
+    padding: 3px;
+    text-align: center;
+}
+.name {
+    width: 15%;
+    padding: 10px;
+}
+.category {
+    width: 10%;
+    padding: 10px;
+}
+.desc {
+    width: 30%;
+    padding: 10px;
+}
+.act {
+    width: 32%;
+    padding: 10px;
+}
+.sku{
+    width: 8%;
+    text-align: center;
+}
+.topping {
+    width: 22%;
+    padding: 10px;
+}
+.form {
+    display: flex;
+    flex-direction: column;
+}
+.group_one{
+    display: flex;
+    justify-content: flex-start;
+}
+.group_one a{
+    margin: 0.5%;
+}
+.group_one form{
+    margin: 0.5%;
+}
+
+.table_body.act a, .table_body.act input {
+    font-size: 13px;
+}
+tr {
+    display: flex;
+    align-content: center;
+}
+td {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+td.table_body.name, td.table_body.category, td.table_body.desc {
+    justify-content: flex-start;
+}
+th.table_head.act {
+    text-align: center;
+}
+.btn.btn-outline-success{
+    font-size: 13px;
+}
+.setting{
+    display: flex;
+    width: 18%;
+}
+.table_head.setting{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+}
+.table_body.setting{
+    display: flex;
+    flex-direction: column;
+}
+.div_setting{
+    display: flex;
+    text-align: center;
+    width: 100%;
+    padding: 5px 0;
+    border-bottom: 1px solid #dee2e6;
+}
+.div_setting:last-child{
+    border-bottom: none;
+}
+.div_setting div{
+    width: 33.3%;
+}
+.table_head.setting div{
+  text-align: center;
+}
+.table_head.topping{
+    text-align: center;
+}
+.header_text{
+    margin-top: 15px;
+    margin-bottom: 25px;
+    font-style: italic;
+    font-family: Noto Serif, sans-serif;
+}
+.middle_input{
+    width: 50%;
+}
+.prepend_size{
+    width: 20%;
+}
+.prepend_size_span{
+    width: 100%;
+}
+.size{
+    width: 12%;
+}
+.price{
+    width: 12%;
+}
+.weight{
+    width: 12%;
+}
+.size_product{
+    width: 30%;
+}
+.stub{
+    width: 29%;
+}
+.margin_button{
+    margin: 0.5%;
+}
+.num_size_product{
+    width: 12.5%;
+    padding: 3px;
+    text-align: center;
+}
+.size_size_product{
+    width: 20%;
+}
+.price_size_product{
+    width: 20%;
+}
+.weight_size_product{
+    width: 20%;
+}
+.padding_left{
+    padding-left: 1%;
+}
+.label_topping{
+    display: block;
+}
+.btn-outline-info{
+    font-size: 13px;
+}
+td.table_body.name_center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.fs_16px{
+    font-size: 16px;
+}
+.custom-file-input:lang(en)~.custom-file-label::after {
+    content: "Выбрать";
+}
+div.image{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+}
+div.image img{
+    width: 90%;
+    height: 90%;
+}
+
+.input_text_gray{
+    color: #495057;
+}
+
+.two_block{
+    display: flex;
+    flex-direction: row;
+    margin-top: 0;
+}
+.left_block{
+    width: 50%;
+}
+.right_block{
+    width: 50%;
+}
+.margin_top_null{
+    margin: 0;
+}
+
+div.image .image_icon{
+    width: 70px;
+    height: 70px;
+}
+
+.filter_category{
+    width: 100%;
+    margin: 1.5% 0 0 1.7%;
+    display: flex;
+}
+
+.btn_category{
+    margin-left: 0.5%;
+}
+
+.input-group_category{
+    width: 40%;
+}
+
+.topping_margin{
+    width: 50%;
+    margin: 0.25% 0;
+}
+.topping_fs{
+    font-size: 14px;
+    background-color: #e9ecef;
+}
+.green{
+    background-color: rgb(138, 170, 42);
+    border: 1px solid rgb(138, 170, 42);
+}
