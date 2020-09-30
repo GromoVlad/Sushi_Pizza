@@ -7,11 +7,18 @@ use App\Http\Requests\ProfileRequest;
 use App\Http\Requests\PasswordRequest;
 use App\Models\User;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Redis;
 
 class AccountController extends Controller
 {
     public function index()
     {
+     /*   $redis = new Redis();
+        $redis->connect('127.0.0.1', 6379);
+        $redis->set('key', 1);
+        $value = $redis->get('key');
+        dd($value);
+     */
         return view('personal.account');
     }
 
@@ -29,4 +36,5 @@ class AccountController extends Controller
         $user->update($params);
         return redirect()->route('account');
     }
+
 }

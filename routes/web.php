@@ -26,10 +26,9 @@ Route::put('admin/products/{product}/saveToppings', 'Admin\AddToppingController@
 Route::get('/account', 'Personal\AccountController@index')->name('account');
 Route::put('/account/edit/{user}', 'Personal\AccountController@editProfile')->name('profile.edit');
 Route::put('/account/password/edit/{user}', 'Personal\AccountController@editPassword')->name('profile.password.edit');
-
-
-
+Route::get('/basket', 'Personal\BasketController@index')->name('basket');
 Route::get('/{category?}', 'MainController@index')->name('index');
 Route::get('/product/{id}', 'MainController@product')->name('product');
+Route::post('/basket/create', 'Personal\BasketController@create')->name('basket.product.add');
 
 

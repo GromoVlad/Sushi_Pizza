@@ -17,7 +17,8 @@
         </div>
         <div class="product">
             <img class="product_img shadow-lg" src="{{ Storage::url($product->image) }}" alt="{{$product->name}}">
-            <form class="product_order">
+            <form class="product_order" method="POST" action="{{ route('basket.product.add') }}">
+                @csrf
                 <div class="card shadow-lg">
                     <div class="card-body">
                         <p class="card_title">{{$product->name}}</p>
@@ -27,7 +28,8 @@
                             <div class="input-group string_product">
                                 <div class="input-group-prepend">
                                     <div class="input-group-text">
-                                        <input type="radio" name="size_products" id="size_products_{{$sizeProduct->id}}">
+                                        <input type="radio" name="size_products_id" id="size_products_{{$sizeProduct->id}}"
+                                               value="{{$sizeProduct->id}}" checked>
                                     </div>
                                 </div>
                                 <label class="form-control label_size" for="size_products_{{$sizeProduct->id}}">
@@ -41,11 +43,12 @@
                             <div class="input-group string_product">
                                 <div class="input-group-prepend">
                                     <div class="input-group-text">
-                                        <input type="checkbox" name="topping[]" id="topping_{{$topping->id}}">
+                                        <input type="checkbox" name="topping[]" id="topping_{{$topping->id}}"
+                                               value="{{$topping->id}}">
                                     </div>
                                 </div>
                                 <label class="form-control label_size" for="topping_{{$topping->id}}">
-                                    {{$topping->name}}: ({{$topping->price}} гр./{{$topping->weight}} ₽)
+                                    {{$topping->name}}: (+{{$topping->price}} ₽/{{$topping->weight}} гр.)
                                 </label>
                             </div>
                         @endforeach
@@ -57,7 +60,7 @@
                                 <span class="span_count_number">1</span>
                                 <img class="span_icons" src="https://img.icons8.com/material-outlined/24/000000/plus-math.png"/>
                             </span>
-                            <button type="button" class="btn btn-outline-success">В корзину</button>
+                            <button type="submit" class="btn btn-outline-success">В корзину</button>
                         </div>
                     </div>
                 </div>
