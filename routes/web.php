@@ -30,5 +30,4 @@ Route::get('/basket', 'Personal\BasketController@index')->name('basket');
 Route::get('/{category?}', 'MainController@index')->name('index');
 Route::get('/product/{id}', 'MainController@product')->name('product');
 Route::post('/basket/create', 'Personal\BasketController@create')->name('basket.product.add');
-
-
+Route::delete('/basket/delete/{id}', 'Personal\BasketController@delete')->name('basket.product.delete');

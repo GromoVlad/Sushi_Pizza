@@ -4,7 +4,7 @@
 @section('title', 'Заказать продукт: ' . $product->name)
 
 @section('content')
-    <div class="main">
+    <div id="app" class="main">
         <div class="category">
             @foreach($categories as $category)
                 <div class="item_category">
@@ -23,16 +23,17 @@
                     <div class="card-body">
                         <p class="card_title">{{$product->name}}</p>
                         <p class="card_link_text">{{$product->description}}</p>
+                        <input type="hidden" name="product_id" value="{{$product->id}}">
                         <h5 class="header_size">Размер:</h5>
                         @foreach($product->sizeProduct as $sizeProduct)
                             <div class="input-group string_product">
                                 <div class="input-group-prepend">
                                     <div class="input-group-text">
-                                        <input type="radio" name="size_products_id" id="size_products_{{$sizeProduct->id}}"
+                                        <input type="radio" name="size_product_id" id="size_product_{{$sizeProduct->id}}"
                                                value="{{$sizeProduct->id}}" checked>
                                     </div>
                                 </div>
-                                <label class="form-control label_size" for="size_products_{{$sizeProduct->id}}">
+                                <label class="form-control label_size" for="size_product_{{$sizeProduct->id}}">
                                     {{ $sizeProduct->size }} ({{ $sizeProduct->weight }} гр.): {{ $sizeProduct->price }} ₽
                                 </label>
                             </div>
@@ -54,7 +55,7 @@
                         @endforeach
                         <br>
                         <div class="add_basket ">
-                            <span class="span_price">350 ₽</span>
+                            <price-product></price-product>
                             <span class="span_count">
                                 <img class="span_icons" src="https://img.icons8.com/material-outlined/24/000000/minus-math.png"/>
                                 <span class="span_count_number">1</span>
@@ -66,6 +67,7 @@
                 </div>
             </form>
         </div>
+
     </div>
     <h3 class="header_offered_products">ПОПРОБУЙТЕ ЕЩЁ</h3>
     <div class="offered_products">

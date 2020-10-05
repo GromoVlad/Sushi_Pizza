@@ -28,7 +28,7 @@
                             <th class="table_head">Цена</th>
                             <th class="table_head">Действия</th>
                         </tr>
-                        @foreach($basket as $product)
+                        @foreach($basket as $id => $product)
                         <tr class="table_body_block">
                             <td class="table_body center">
                                 <img class="image" src="{{ Storage::url($product['product_image']) }}" alt="{{-- $product_name --}}">
@@ -37,23 +37,30 @@
                                 <p><b>{{$product['category_name']}}:</b> {{$product['product_name']}}</p>
                                 <p><b>Размер:</b> {{$product['size']}}</p>
                                 <p><b>Вес:</b> {{$product['weight']}} гр.</p>
+                                <p><b>Стоимость:</b> {{$product['price']}} ₽</p>
                                 @if(isset($product['topping_one_name']))
-                                    <p><b>Топпинги:</b> {{$product['topping_one_name']}} (+ {{$product['topping_one_weight']}} гр.)</p>
+                                    <p><b>Топпинги:</b> {{$product['topping_one_name']}} (+ {{$product['topping_one_weight']}} гр./{{$product['topping_one_price']}} ₽)</p>
                                 @endif
                                 @if(isset($product['topping_two_name']))
-                                    <p><b>Топпинги:</b> {{$product['topping_two_name']}} (+ {{$product['topping_two_weight']}} гр.)</p>
+                                    <p><b>Топпинги:</b> {{$product['topping_two_name']}} (+ {{$product['topping_two_weight']}} гр./{{$product['topping_two_weight']}} ₽)</p>
                                 @endif
                             </td>
-                            <td class="table_body "><h5><b>{{$product['full_price']}} ₽<b></h5></td>
+                            <td class="table_body "><h5><b>{{$product['full_price']}} ₽</b></h5></td>
                             <td class="table_body">
-                                <form action="" method="POST">
+                                <form action="{{ route('basket.product.delete', $id) }}" method="POST">
                                     @csrf
                                     @method('DELETE')
-                                    <input  class="btn btn-outline-danger input_delete" type="submit" value="Удалить">
+                                    <input class="btn btn-outline-danger input_delete" type="submit" value="Удалить">
                                 </form>
                             </td>
                         </tr>
                         @endforeach
+                        <div class="result_price">
+                            <h4 class="result_price_header">Итого: {{ $resultPrice }} ₽</h4>
+                            <div class="submit_order">
+                                <a class="btn btn-outline-info submit_order" href="">Оформить заказ</a>
+                            </div>
+                        </div>
                     </table>
                     @else
                         <h3 class="center">Ваша корзина пуста</h3>
@@ -61,7 +68,6 @@
                 </div>
             </div>
         </div>
-
     </div>
 </div>
 <br>
